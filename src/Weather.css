@@ -1,0 +1,60 @@
+.Weather {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: larger;
+  font-weight: normal;
+  border: 1px solid #2f5d62;
+  border-radius: 10px;
+  background: #a7c4bc;
+  color: #000;
+  text-align: left;
+  max-width: 70%;
+  margin: 20px auto;
+}
+.Weather header {
+  padding: 0px 80px;
+}
+.Weather .weather-search-form {
+  margin: 50px 2% 0;
+}
+
+.Weather .yourCity-weather:first-letter {
+  text-transform: capitalize;
+}
+
+.Weather .card {
+  font-size: larger;
+  font-weight: normal;
+  margin: 10px 2%;
+  border: 1px solid #2f5d62;
+  border-radius: 10px;
+  background: #a7c4bc;
+}
+
+.Weather img {
+  width: 60%;
+}
+
+.Weather .unit {
+  font-size: 15px;
+  position: relative;
+  top: -15px;
+}
+
+.Weather .yourCity-temperature .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+
+.Weather .card {
+  text-align: center;
+}
+.loading {
+  margin: 200px auto;
+}
+
+@media (max-width: 900px) {
+  .Weather .container {
+    width: 100%;
+  }
+}
