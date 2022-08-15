@@ -7,8 +7,9 @@ export default function Footer() {
       <nav className="navbar navbar-light">
         <span className="navbar-text">
           <a
-            href="https://github.com/BeTetiana/weather-react"
+            href="https://github.com/BeTetiana/react-weather-project"
             title="Here is my open-source code"
+            target="_blank"
           >
             Open-source code
           </a>{" "}
