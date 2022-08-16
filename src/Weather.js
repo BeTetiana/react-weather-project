@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Weather.css";
 import axios from "axios";
-import WeatherForecast from "./WeatherForecast";
+import CurrentWeather from "./CurrentWeather";
 import Footer from "./Footer";
 import { RotatingLines } from "react-loader-spinner";
 
@@ -18,6 +18,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      date: new Date(response.data.dt * 1000),
     });
   }
   function search() {
@@ -38,7 +39,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <WeatherForecast data={weatherData} />
+        <CurrentWeather data={weatherData} />
         <form className="weather-search-form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-4">

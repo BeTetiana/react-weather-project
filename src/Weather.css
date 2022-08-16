@@ -10,6 +10,7 @@
   max-width: 70%;
   margin: 20px auto;
 }
+
 .Weather header {
   padding: 0px 80px;
 }
@@ -31,7 +32,7 @@
 }
 
 .Weather img {
-  width: 60%;
+  width: 100%;
 }
 
 .Weather .unit {
