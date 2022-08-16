@@ -7,9 +7,10 @@ export default function WeatherForecast(props) {
   return (
     <div className="WeatherForecast">
       <header>
-        <div className="row mt-3 fs-2">
+        <div className="row mt-3 fs-1">
           <div className="col-sm-5">
-            {Math.round(props.data.temperature)} <span class="unit">℃/°F</span>
+            {Math.round(props.data.temperature)}{" "}
+            <span className="unit">℃/°F</span>
           </div>
           <div className="col-sm-5 text-capitalize">{props.data.city}</div>
           <div className="col-sm-2">
