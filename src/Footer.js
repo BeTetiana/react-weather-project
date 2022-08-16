@@ -10,6 +10,7 @@ export default function Footer() {
             href="https://github.com/BeTetiana/react-weather-project"
             title="Here is my open-source code"
             target="_blank"
+            rel="noreferrer"
           >
             Open-source code
           </a>{" "}
