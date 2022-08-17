@@ -3,6 +3,7 @@ import FormatTime from "./FormatTime";
 import FormatDate from "./FormatDate";
 import Forecast from "./Forecast";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function WeatherForecast(props) {
   return (
@@ -10,8 +11,9 @@ export default function WeatherForecast(props) {
       <header>
         <div className="row mt-3 fs-1">
           <div className="col-sm-5">
-            {Math.round(props.data.temperature)}{" "}
-            <span className="unit">℃/°F</span>
+            <div className="temperature">
+              <WeatherTemperature celsius={props.data.temperature} />
+            </div>
           </div>
           <div className="col-sm-5 text-capitalize">{props.data.city}</div>
           <div className="col-sm-2">
