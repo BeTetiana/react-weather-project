@@ -2,6 +2,7 @@ import React from "react";
 import FormatTime from "./FormatTime";
 import FormatDate from "./FormatDate";
 import Forecast from "./Forecast";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecast(props) {
   return (
@@ -14,7 +15,7 @@ export default function WeatherForecast(props) {
           </div>
           <div className="col-sm-5 text-capitalize">{props.data.city}</div>
           <div className="col-sm-2">
-            <img src={props.data.icon} alt="Weather icon here" />
+            <WeatherIcon code={props.data.icon} />
           </div>
         </div>
         <div className="row fs-4">
