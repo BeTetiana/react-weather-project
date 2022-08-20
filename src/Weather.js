@@ -61,13 +61,6 @@ export default function Weather(props) {
                 className="form-control fs-5 shadow bg-body rounded"
               />
             </div>
-            <div className="col-2">
-              <input
-                type="submit"
-                value="Location"
-                className="form-control fs-5 shadow bg-body rounded"
-              />
-            </div>
           </div>
         </form>
         <Footer />

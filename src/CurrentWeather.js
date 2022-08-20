@@ -32,7 +32,14 @@ export default function WeatherForecast(props) {
           <div className="col-sm-2"></div>
         </div>
         <div className="row fs-4">
-          <div className="col-sm-5">༄{Math.round(props.data.wind)} m/s</div>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+          />
+          <div className="col-sm-5">
+            <span class="material-symbols-outlined">air</span>
+            {Math.round(props.data.wind)} m/s
+          </div>
           <div className="col-sm-5">
             <FormatDate date={props.data.date} />
           </div>
