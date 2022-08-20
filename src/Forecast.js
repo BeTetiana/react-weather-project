@@ -1,79 +1,49 @@
-import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
+import React, { useState, useEffect } from "react";
+import "./Forecast.css";
+import ForecastDay from "./ForecastDay";
+import axios from "axios";
 
-export default function Forecast() {
-  return (
-    <div className="Forecast">
-      <div className="card">
-        <div className="card-body">
-          <div className="row fs-5 text-black text-opacity-50">
-            <div className="col-sm-2">Tue</div>
-            <div className="col-sm-2">Wed</div>
-            <div className="col-sm-2">Thu</div>
-            <div className="col-sm-2">Fri</div>
-            <div className="col-sm-2">Sat</div>
-            <div className="col-sm-2">Sun</div>
-          </div>
-          <div className="row fs-5">
-            <div className="col-sm-2 ">
-              <ReactAnimatedWeather
-                icon={"CLEAR_DAY"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-            <div className="col-sm-2">
-              <ReactAnimatedWeather
-                icon={"PARTLY_CLOUDY_DAY"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-            <div className="col-sm-2">
-              <ReactAnimatedWeather
-                icon={"CLOUDY"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-            <div className="col-sm-2 ">
-              <ReactAnimatedWeather
-                icon={"RAIN"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-            <div className="col-sm-2">
-              <ReactAnimatedWeather
-                icon={"SLEET"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-            <div className="col-sm-2">
-              <ReactAnimatedWeather
-                icon={"FOG"}
-                color={"white"}
-                size={40}
-                animate={true}
-              />
-            </div>
-          </div>
-          <div className="row fs-5 text-black text-opacity-50">
-            <div className="col-sm-2 ">25°/30°</div>
-            <div className="col-sm-2">25°/30°</div>
-            <div className="col-sm-2">25°/30°</div>
-            <div className="col-sm-2 ">25°/30°</div>
-            <div className="col-sm-2">25°/30°</div>
-            <div className="col-sm-2">25°/30°</div>
+export default function Forecast(props) {
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
+
+  function handleResponse(response) {
+    console.log(response.data);
+    setForecast(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="Forecast">
+        <div className="Forecast-card">
+          <div className="row">
+            {forecast.map(function (Forecast, index) {
+              if (index < 5) {
+                return (
+                  <div className="col" key={index}>
+                    <ForecastDay data={Forecast} />
+                  </div>
+                );
+              } else {
+                return null;
+              }
+            })}
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "1bbb13d9aa172c1c76474d1d6442cd2d";
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+
+    return null;
+  }
 }

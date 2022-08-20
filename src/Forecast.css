@@ -1,0 +1,18 @@
+.Forecast-card {
+  font-size: larger;
+  font-weight: normal;
+  margin: 10px 2%;
+  border: 1px solid #2f5d62;
+  border-radius: 10px;
+  background: #a7c4bc;
+  text-align: center;
+}
+.Forecast-day {
+  opacity: 0.8;
+}
+.Forecast-temperature-max {
+  opacity: 0.8;
+}
+.Forecast-temperature-min {
+  opacity: 0.6;
+}

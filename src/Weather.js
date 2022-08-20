@@ -4,6 +4,7 @@ import axios from "axios";
 import CurrentWeather from "./CurrentWeather";
 import Footer from "./Footer";
 import { RotatingLines } from "react-loader-spinner";
+import Forecast from "./Forecast";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -12,6 +13,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       city: response.data.name,
       description: response.data.weather[0].description,
@@ -22,7 +24,7 @@ export default function Weather(props) {
     });
   }
   function search() {
-    let apiKey = "c50b5a754f93d07aef8211ca2b9025a4";
+    let apiKey = "1bbb13d9aa172c1c76474d1d6442cd2d";
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiURL).then(handleResponse);
   }
@@ -40,6 +42,7 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <CurrentWeather data={weatherData} />
+        <Forecast coordinates={weatherData.coordinates} />
         <form className="weather-search-form" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-4">

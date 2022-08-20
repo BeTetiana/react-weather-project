@@ -1,7 +1,6 @@
 import React from "react";
 import FormatTime from "./FormatTime";
 import FormatDate from "./FormatDate";
-import Forecast from "./Forecast";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 
@@ -17,7 +16,7 @@ export default function WeatherForecast(props) {
           </div>
           <div className="col-sm-5 text-capitalize">{props.data.city}</div>
           <div className="col-sm-2">
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon code={props.data.icon} size={80} />
           </div>
         </div>
         <div className="row fs-4">
@@ -45,7 +44,6 @@ export default function WeatherForecast(props) {
           <div className="col-sm-2"></div>
         </div>
       </header>
-      <Forecast />
     </div>
   );
 }

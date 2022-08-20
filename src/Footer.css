@@ -2,9 +2,9 @@
   font-size: small;
   display: block;
   font-family: monospace;
-  opacity: 0.9;
   margin: 10px 0 0 20px;
 }
 .Footer a {
   text-decoration: none;
+  color: #2f5d62;
 }
